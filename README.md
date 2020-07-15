@@ -1,4 +1,4 @@
-# election-zilla
+# Election Zilla
 
 1. Team Name: 
 
@@ -17,3 +17,6 @@ https://www.urbandictionary.com/define.php?term=Roawr
 Green, Red,
 
 5. Git Repo: https://github.com/JustinHermida/election-zilla
+
+
+## Models
