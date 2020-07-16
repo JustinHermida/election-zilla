@@ -1,0 +1,12 @@
+.main {
+  padding-top: 80px;
+}
+
+.text-shadow {
+  font-weight: bolder;
+  text-shadow: 1px 1px black;
+}
+
+.light-background {
+  background-color: #fff;
+}
