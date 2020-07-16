@@ -6,7 +6,7 @@ export const NewQuestionsTable = ({ questions }) => {
 
 
     return (
-        <table>
+        <table className="light-background table table-striped table-responsive-xl">
             <thead>
             <tr>
                 <th>Questions Added</th>

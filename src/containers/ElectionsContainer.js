@@ -14,8 +14,6 @@ import {ViewElectionResults} from "../components/ViewElectionResults";
 export const ElectionsContainer = ({ display }) => {
 
     const stateProps = useSelector(state => state);
-    console.log("STATE");
-    console.log(stateProps);
     const dispatch = useDispatch();
 
     const dispatchProps = useMemo(() => bindActionCreators({
