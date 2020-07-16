@@ -8,16 +8,16 @@ import { VoterToolContainer } from './containers/VoterToolContainer';
 import { voterToolStore } from './stores/voterToolStore';
 
 ReactDOM.render(
-  // <React.StrictMode>
-  //   <App />
-  //   <VoterToolContainer />
-  // </React.StrictMode>,
+  <React.StrictMode>
+    <App />
+    {/* <VoterToolContainer /> */}
+  </React.StrictMode>,
 
-  <>
-  <Provider store={voterToolStore}>
-    <VoterToolContainer />
-  </Provider>
-  </>,
+  // <>
+  // <Provider store={voterToolStore}>
+  //   <VoterToolContainer />
+  // </Provider>
+  // </>,
 
 
   document.getElementById('root')
