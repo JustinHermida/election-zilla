@@ -8,6 +8,7 @@ import { electionStore } from './stores/electionStore'
 
 import { Layout } from './components/Layout'
 import { Home } from './components/Home'
+import { NewElectionsPage } from "./components/NewElectionsPage";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
               </Route>
               <Route path="/new-election">
                 <div>New Election Component Goes Here.</div>
+                  <NewElectionsPage />
               </Route>
             </Switch>
         </Provider>
