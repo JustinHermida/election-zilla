@@ -1,8 +1,28 @@
 {
   "voters": [
-    {"id":  1, "firstName": "Bob", "lastName":  "Smith"}
+    {"id":  1, "firstName": "Jay", "lastName":  "Grissom", "email": "jay_grissom@intuit.com"},
+    {"id":  2, "firstName": "John", "lastName":  "Carmack", "email": "john_carmac@idsoftware.com"},
+    {"id":  3, "firstName": "Cliff", "lastName":  "Bleszinski", "email": "cliff_bleszinski@epicgames.com"}
   ],
   "elections": [
-    {"question":  "Do you like cats?"}
+    {
+      "id": 1,
+      "name": "Vote For Your Favorite Animal",
+      "questions": [
+        {"id": 1, "question": "Do you like lions?", "count": 1, "voter_ids": [1] },
+        {"id": 2, "question": "Do you like tiggers?", "count": 0, "voter_ids": [] },
+        {"id": 3, "question": "Do you like bears?", "count": 0, "voter_ids": [] },
+        {"id": 4, "question": "oh my!", "count": 0, "voter_ids": [] }
+      ]
+    },
+    { 
+      "id": 2,
+      "name": "Vote For Your Favorite NetFlix Series",
+      "questions": [
+      {"id": 1, "question": "Have you watched Colony?", "count": 1, "voter_ids": [1] },
+      {"id": 2, "question": "Have you watched The Last Kingdom?", "count": 0, "voter_ids": [] },
+      {"id": 3, "question": "Have you watched The Altered Carbon?", "count": 0, "voter_ids": [] },
+      {"id": 4, "question": "Have you watched The Last Travelers?", "count": 0, "voter_ids": [] }
+    ]}
   ]
 }
