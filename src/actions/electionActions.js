@@ -10,8 +10,8 @@ export const createRefreshElectionsRequestAction = () => ({
     type: REFRESH_ELECTIONS_REQUEST_ACTION,
 });
 
-export const createRefreshElectionsDoneAction = () => ({
-    type: REFRESH_ELECTIONS_DONE_ACTION,
+export const createRefreshElectionsDoneAction = (elections) => ({
+    type: REFRESH_ELECTIONS_DONE_ACTION, elections
 });
 
 export const refreshElections = () => {
