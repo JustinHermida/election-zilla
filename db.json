@@ -13,6 +13,9 @@
     {
       "firstName": "Jay",
       "lastName": "Grissom",
+      "address": "456 st",
+      "city": "San Diego",
+      "birthdate": "01/01/1990",
       "email": "jay_grissom@intuit.com",
       "phone": 123,
       "id": 2
@@ -20,15 +23,22 @@
     {
       "firstName": "John",
       "lastName": "Carmack",
+      "address": "789 st",
+      "city": "Mountain View",
+      "birthdate": "01/01/1990",
       "email": "john_carmac@idsoftware.com",
       "phone": 122342,
       "id": 3
     },
     {
-      "id": 4,
       "firstName": "Cliff",
       "lastName": "Bleszinski",
-      "email": "cliff_bleszinski@epicgames.com"
+      "address": "10 st",
+      "city": "New York",
+      "birthdate": "01/01/1990",
+      "email": "cliff_bleszinski@epicgames.com",
+      "phone": 12345,
+      "id": 4
     }
   ],
   "elections": [
