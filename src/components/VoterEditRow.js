@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { voterPropTypes } from '../propTypes/voters';
 import { useForm } from '../hooks/useForm';
-import { NumberInput } from './NumberInput';
+// import { NumberInput } from './NumberInput';
 
 
 export const VoterEditRow = ({
@@ -17,7 +17,7 @@ export const VoterEditRow = ({
     lastName: voter.lastName,
     address: voter.address,
     city: voter.city,
-    // birthdate: voter.birthdate,
+    birthdate: voter.birthdate,
     email: voter.email,
     phone: voter.phone,
   });
@@ -38,7 +38,7 @@ export const VoterEditRow = ({
       <td><input type="text" name="city" value={voterForm.city} onChange={change} /></td>
       <td><input type="text" name="birthdate" value={voterForm.birthdate} onChange={change} /></td>
       <td><input type="text" name="email" value={voterForm.email} onChange={change} /></td>
-      <td><NumberInput name="phone" value={voterForm.phone} onChange={change} /></td>
+      <td><input type="text" name="phone" value={voterForm.phone} onChange={change} /></td>
       <td>
         <button type="button"
           onClick={saveVoter}>Save</button>

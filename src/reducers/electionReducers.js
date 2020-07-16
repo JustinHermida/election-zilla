@@ -3,11 +3,6 @@ import { combineReducers } from 'redux';
 import { votersReducer, editVoterIdReducer } from './voterToolReducers';
 import {ADD_BALLOT_QUESTION_ACTION, CLEAR_BALLOT_QUESTIONS_ACTION, REFRESH_ELECTIONS_DONE_ACTION} from "../actions/electionActions";
 
-// export const voterReducer = (voters = [], action) => {
-//     // Placeholder
-//     return [];
-// };
-
 export const electionReducer = (elections = [], action) => {
     if(action.type === REFRESH_ELECTIONS_DONE_ACTION) {
         return action.elections;
