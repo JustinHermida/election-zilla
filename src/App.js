@@ -1,15 +1,17 @@
 import React from 'react';
 import './App.css';
 
-import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {Provider} from 'react-redux';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
-import { electionStore } from './stores/electionStore'
+import {electionStore} from './stores/electionStore'
 
-import { Layout } from './components/Layout'
-import { Home } from './components/Home'
+import {Layout} from './components/Layout'
+import {Home} from './components/Home'
+import {NewElection} from "./components/NewElection";
 
 function App() {
+
   return (
     <Router>
       <Layout>
@@ -32,6 +34,7 @@ function App() {
               </Route>
               <Route path="/new-election">
                 <div>New Election Component Goes Here.</div>
+                  <NewElection />
               </Route>
             </Switch>
         </Provider>
