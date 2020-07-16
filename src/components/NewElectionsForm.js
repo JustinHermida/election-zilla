@@ -1,12 +1,12 @@
 import React, {useState} from "react";
 import {NewQuestionsTable} from "./NewQuestionsTable";
+import {addBallotQuestionAction} from "../actions/electionActions";
 
-export const NewElectionsForm = () => {
+export const NewElectionsForm = ({questions, onAddBallotQuestions, onSaveBallot}) => {
 
     const [ ballot, setNewElection ] = useState({
         name: '',
         question: '',
-        questions: [],
     });
 
     const change = (e) => {
@@ -16,33 +16,40 @@ export const NewElectionsForm = () => {
         });
     };
 
-    const submitElection = () => {
-        const newQuestionsList = ballot.questions.concat();
+    const addBallotQuestion = () => {
+        const newQuestionsList = questions.concat();
         newQuestionsList.push(ballot.question);
+
+        onAddBallotQuestions(newQuestionsList);
 
         setNewElection({
             name: ballot.name,
             question: '',
-            questions: newQuestionsList,
         });
     };
 
     const saveElection = () => {
-        const ballotQuestions = ballot.questions.map((question, index) => ({
+        const ballotQuestions = questions.map((question, index) => ({
             id: index + 1,
             question: question,
             count: 0,
             voterIds: [],
         }));
 
+        // This is what is getting saved to the db.
         const elections = {
-            name: ballot.name,
+            name: '',
             questions: ballotQuestions,
         };
 
+        // TODO: figure out how to call clearBallotQuestionsAction in the onSaveBallot()
+        onSaveBallot(elections)
+            .then(() => onAddBallotQuestions([]));
 
-        console.log(elections);
-        // dispatchProps.onSaveBallot(elections);
+        setNewElection({
+            name: '',
+            question: '',
+        });
     };
 
     return (
@@ -52,10 +59,14 @@ export const NewElectionsForm = () => {
                 <input type="text" id="new-ballot-input" name="name" value={ballot.name} onChange={change} />
                 <label htmlFor="new-question-input">New Question</label>
                 <input type="text" id="new-question-input" name="question" value={ballot.question} onChange={change} />
-                <button type="button" onClick={submitElection}>Add Question</button>
+                <button type="button" onClick={addBallotQuestion}>Add Question</button>
             </form>
-            <NewQuestionsTable questions={ballot.questions} />
+            <NewQuestionsTable questions={questions} />
             <button type="button" onClick={saveElection}>Save Ballot</button>
         </>
     );
+};
+
+NewElectionsForm.defaultProps = {
+    questions: []
 };
