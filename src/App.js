@@ -20,6 +20,9 @@ function App() {
               <Route path="/" exact>
                 <HomePage />
               </Route>
+              <Route path="/ballots/{id}" exact>
+                <BallotPage />
+              </Route>
               <Route path="/voter-registration">
                 <div>Voter Registration Component Goes Here.</div>
               </Route>

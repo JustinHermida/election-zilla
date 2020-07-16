@@ -13,7 +13,7 @@ export const VoterTable = ({
 }) => {
 
   return (
-    <table>
+    <table className="light-background table table-striped table-responsive-xl">
       <thead>
         <tr>
           <th>Id</th>
@@ -24,11 +24,12 @@ export const VoterTable = ({
           {/* <th>Birthdate</th> */}
           <th>Email</th>
           <th>Phone</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
         {!voters.length
-          ? <tr><td colSpan="7">There are no cars.</td></tr>
+          ? <tr><td colSpan="7">There are no registered voters.</td></tr>
           : voters.map(voter => voter.id === editVoterId
               ? <VoterEditRow key={voter.id} voter={voter}
                   onSaveVoter={saveVoter} onCancelVoter={cancelVoter} />

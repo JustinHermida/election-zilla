@@ -2,6 +2,8 @@ export const REFRESH_ELECTIONS_REQUEST_ACTION = 'REFRESH_ELECTIONS_REQUEST';
 export const REFRESH_ELECTIONS_DONE_ACTION = 'REFRESH_ELECTIONS_DONE';
 
 export const SAVE_BALLOT_REQUEST_ACTION = 'SAVE_BALLOT_REQUEST';
+export const ADD_BALLOT_QUESTION_ACTION = 'ADD_BALLOT_QUESTION';
+export const CLEAR_BALLOT_QUESTIONS_ACTION = 'CLEAR_BALLOT_QUESTIONS';
 
 
 export const createRefreshElectionsRequestAction = () => ({
@@ -41,7 +43,17 @@ export const saveBallot = ballot => {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(ballot),
-        })
-            .then(() => refreshElections());
+        });
     }
 };
+
+export const addBallotQuestionAction = ballotQuestions => ({
+    type: ADD_BALLOT_QUESTION_ACTION, ballotQuestions
+});
+
+export const clearBallotQuestionsAction = (ballotQuestions) => ({
+    type: CLEAR_BALLOT_QUESTIONS_ACTION,
+    ballotQuestions,
+});
+
+
