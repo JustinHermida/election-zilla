@@ -8,6 +8,7 @@ import {
 } from "../actions/electionActions";
 import {ViewElections} from "../components/ViewElections";
 import {NewElectionsForm} from "../components/NewElectionsForm";
+import {EditBallot} from '../components/EditBallot'
 
 export const ElectionsContainer = ({ display }) => {
 
@@ -27,7 +28,9 @@ export const ElectionsContainer = ({ display }) => {
     return (
         display === "new"
         ? <NewElectionsForm /> 
-        : <ViewElections {...dispatchProps} {...stateProps}/>
+        : display === "ballot" 
+            ? <EditBallot {...dispatchProps} {...stateProps} />
+            : <ViewElections {...dispatchProps} {...stateProps} />
     );
 
 };

@@ -1,6 +1,6 @@
 import React from 'react'
+import { ElectionsContainer } from '../containers/ElectionsContainer'
 
-export const BallotPage = ({props}) => {
-  console.log(props)
-  return <div>Ballot Page</div>
+export const BallotPage = () => {
+  return <ElectionsContainer display='ballot'/>
 }
