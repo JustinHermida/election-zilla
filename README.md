@@ -20,3 +20,78 @@ Green, Red,
 
 
 ## Models
+
+### Workflow 1:
+
+Owner: Abhi
+
+
+
+POST /voters
+Voter: {
+  id: PK
+  firstName,
+  lastName.,
+  address,
+  county/city,
+  county/city, 
+  birthdate, 
+  email
+  phone,
+}
+
+POST /register
+
+GET /voters
+ - Voters component
+ 
+DELETE /voters/{id}
+DELETE /voters
+{[...ids]}
+ - Voters Table Component
+ - Sorting ascending by column
+
+PUT /voters
+
+Voter: {
+  firstName,
+  lastName.,
+  address,
+  county/city,
+  county/city, 
+  birthdate, 
+  email,
+  phone,
+}
+
+
+### Workflow 2:
+
+Jay
+Person {
+  Role:
+}
+
+### Workflow 3
+
+Justin
+
+Components:
+- Create Election Form/Model Component
+- Ballot Table component for displaying elections
+-- Do more research
+    
+Election {
+ id
+ Questions [...Question],
+ voterId [],
+}
+
+
+Question: {
+  id,
+  question,
+  yes_counts,
+  total
+}
+
