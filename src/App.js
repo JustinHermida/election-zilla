@@ -11,6 +11,9 @@ import { HomePage } from './components/HomePage'
 import { BallotPage } from './components/BallotPage'
 import { NewElectionsPage } from "./components/NewElectionsPage";
 import { VoterToolContainer } from './containers/VoterToolContainer';
+import {ViewElections} from "./components/ViewElections";
+import {ViewElectionResults} from "./components/ViewElectionResults";
+import {ViewElectionsResultsPage} from "./components/ViewElectionsResultsPage";
 
 function App() {
   return (
@@ -32,6 +35,7 @@ function App() {
               </Route>
               <Route path="/view-results">
                 <div>View Results Component Goes Here.</div>
+                  <ViewElectionsResultsPage />
               </Route>
               <Route path="/new-election">
                 <div>New Election Component Goes Here.</div>

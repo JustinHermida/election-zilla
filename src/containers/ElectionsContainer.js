@@ -9,10 +9,13 @@ import {
 import {ViewElections} from "../components/ViewElections";
 import {NewElectionsForm} from "../components/NewElectionsForm";
 import {EditBallot} from '../components/EditBallot'
+import {ViewElectionResults} from "../components/ViewElectionResults";
 
 export const ElectionsContainer = ({ display }) => {
 
     const stateProps = useSelector(state => state);
+    console.log("STATE");
+    console.log(stateProps);
     const dispatch = useDispatch();
 
     const dispatchProps = useMemo(() => bindActionCreators({
@@ -25,12 +28,22 @@ export const ElectionsContainer = ({ display }) => {
         dispatchProps.onRefreshElections();
     }, [ dispatchProps ]);
 
-    return (
-        display === "new"
-        ? <NewElectionsForm /> 
-        : display === "ballot" 
-            ? <EditBallot {...dispatchProps} {...stateProps} />
-            : <ViewElections {...dispatchProps} {...stateProps} />
-    );
+    const displayElection = () => {
+        if(display === "new") {
+            return <NewElectionsForm questions={stateProps.ballotQuestions} {...dispatchProps} />;
+        }
+        
+        if( display === "results") {
+            return <ViewElectionResults elections={stateProps.elections}/>
+        }
+
+        if (display === "ballot"){
+            return <EditBallot {...dispatchProps} {...stateProps} />
+        }
+
+        return <ViewElections />;
+    };
+
+    return displayElection();
 
 };
