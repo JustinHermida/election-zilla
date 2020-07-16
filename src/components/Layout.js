@@ -10,7 +10,7 @@ export const Layout = ({children}) => {
           <Link className="navbar-brand text-shadow" to="/">
             <strong>ElectionZilla</strong>
             {' '}
-            <img src="assets/img/logo.jpg" alt="ElectionZilla Logo" class="rounded-circle" width="60" height="60"/>
+            <img src="assets/img/logo.jpg" alt="ElectionZilla Logo" className="rounded-circle" width="60" height="60"/>
           </Link>
           <button data-toggle="collapse" data-target="#navbarResponsive" className="navbar-toggler float-right" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <i className="fa fa-bars"></i>
@@ -34,7 +34,7 @@ export const Layout = ({children}) => {
       </header>
       <footer>
           <div className="container">
-              <p>&copy; ElectionZilla 2020. All Rights Reserved. All results are kept secret and away from the general public to ensure maximum manipulatability of all elections.</p>
+              <p>&copy; ElectionZilla 2020. All Rights Reserved. All results are kept secret and away from the general public to ensure maximum manipulability of all elections.</p>
           </div>
       </footer>
       </div>
