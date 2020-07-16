@@ -14,8 +14,8 @@ export const VoterTool = ({
 }) => {
 
   return (
-    <div className="voter-tool">
-      <ToolHeader headerText="Voter Tool" />
+    <div>
+      <ToolHeader headerText="View Voters" />
       <VoterTable voters={voters} editVoterId={editVoterId}
         onEditVoter={editVoter} onDeleteVoter={deleteVoter}
         onSaveVoter={saveVoter} onCancelVoter={cancelVoter} />
