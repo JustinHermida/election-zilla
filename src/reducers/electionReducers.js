@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
+import { votersReducer, editVoterIdReducer } from './voterToolReducers';
 import {ADD_BALLOT_QUESTION_ACTION, CLEAR_BALLOT_QUESTIONS_ACTION} from "../actions/electionActions";
 
-export const voterReducer = (voters = [], action) => {
-    // Placeholder
-    return [];
-};
+// export const voterReducer = (voters = [], action) => {
+//     // Placeholder
+//     return [];
+// };
 
 export const electionReducer = (elections = [], action) => {
     // Placeholder
@@ -28,7 +29,8 @@ export const clearBallotQuestionsReducer = (questions = [], action) => {
 };
 
 export const appReducer = combineReducers({
-    voters: voterReducer,
+    voters: votersReducer,
+    editVoterId: editVoterIdReducer,
     elections: electionReducer,
     ballotQuestions: ballotQuestionsReducer,
     clearBallotQuestions: clearBallotQuestionsReducer,
