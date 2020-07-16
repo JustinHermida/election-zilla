@@ -9,6 +9,7 @@ import { electionStore } from './stores/electionStore'
 import { Layout } from './components/Layout'
 import { Home } from './components/Home'
 import { NewElectionsPage } from "./components/NewElectionsPage";
+import { VoterToolContainer } from './containers/VoterToolContainer';
 
 function App() {
   return (
@@ -23,10 +24,7 @@ function App() {
                 <div>Voter Registration Component Goes Here.</div>
               </Route>
               <Route path="/view-voters">
-                <div>View Voters Component Goes Here.</div>
-              </Route>
-              <Route path="/view-voters">
-                <div>View Voters Component Goes Here.</div>
+                <VoterToolContainer />
               </Route>
               <Route path="/view-results">
                 <div>View Results Component Goes Here.</div>
