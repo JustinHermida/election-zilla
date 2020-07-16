@@ -20,8 +20,6 @@ Green, Red,
 
 
 ## Models
-<<<<<<< HEAD
-=======
 
 ### Workflow 1:
 
@@ -97,4 +95,3 @@ Question: {
   total
 }
 
->>>>>>> master
