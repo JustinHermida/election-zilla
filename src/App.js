@@ -1,19 +1,17 @@
 import React from 'react';
 import './App.css';
 
-import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {Provider} from 'react-redux';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
-import { appStore } from './stores/appStore'
+import {appStore} from './stores/appStore'
 
-import { Layout } from './components/Layout'
-import { Home } from './components/Home'
-import { NewElectionsPage } from "./components/NewElectionsPage";
-import { VoterToolContainer } from './containers/VoterToolContainer';
+import {Layout} from './components/Layout'
+import {Home} from './components/Home'
+import {VoterToolContainer} from './containers/VoterToolContainer';
+import {ElectionFormContainer} from "./containers/ElectionFormContainer";
+import {ViewResultsContainer} from "./containers/ViewResultsContainer";
 import { VoterFormContainer } from './containers/VoterFormContainer';
-import {ViewElections} from "./components/ViewElections";
-import {ViewElectionResults} from "./components/ViewElectionResults";
-import {ViewElectionsResultsPage} from "./components/ViewElectionsResultsPage";
 
 function App() {
   return (
@@ -32,11 +30,11 @@ function App() {
               </Route>
               <Route path="/view-results">
                 <div>View Results Component Goes Here.</div>
-                  <ViewElectionsResultsPage />
+                  <ViewResultsContainer />
               </Route>
               <Route path="/new-election">
                 <div>New Election Component Goes Here.</div>
-                  <NewElectionsPage />
+                  <ElectionFormContainer />
               </Route>
             </Switch>
         </Provider>

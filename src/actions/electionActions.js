@@ -34,14 +34,29 @@ export const createSaveBallotRequestAction = ballot => ({
 });
 
 
-export const saveBallot = ballot => {
+export const saveBallot = (name, questions) => {
+
+    // build the db model
+    const ballotQuestions = questions.map((question, index) => ({
+        id: index + 1,
+        question: question,
+        count: 0,
+        voterIds: [],
+    }));
+
+    const elections = {
+        name: name,
+        questions: ballotQuestions,
+    };
+
+
     return dispatch =>  {
-        dispatch(createSaveBallotRequestAction(ballot));
+        dispatch(createSaveBallotRequestAction(elections));
 
         return fetch('http://localhost:3060/elections', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(ballot),
+            body: JSON.stringify(elections),
         });
     }
 };
