@@ -1,28 +1,39 @@
-import React from 'react';
+import React, { useMemo, useEffect } from 'react';
 import { bindActionCreators } from 'redux';
 import { useSelector, useDispatch } from 'react-redux';
 
 import {
-  createAddVoterAction, createSaveVoterAction,
-  createDeleteVoterAction, createEditVoterAction,
-  createCancelVoterAction
+  addVoter, saveVoter,
+  deleteVoter, createEditVoterAction,
+  createCancelVoterAction, refreshVoters,
 } from '../actions/voterToolActions';
 
 import { VoterTool } from '../components/VoterTool';
 
 export const VoterToolContainer = () => {
 
-  const voters = useSelector(state => state.voters);
-  const editVoterId = useSelector(state => state.editVoterId);
+  // const voters = useSelector(state => state.voters);
 
-  const dispatchProps = bindActionCreators({
-    onAddVoter: createAddVoterAction,
-    onSaveVoter: createSaveVoterAction,
-    onDeleteVoter: createDeleteVoterAction,
+  const stateProps = useSelector(state => state);
+
+  const dispatch = useDispatch();
+
+  // const editVoterId = useSelector(state => state.editVoterId);
+
+  const dispatchProps = useMemo(() => bindActionCreators({
+    onRefreshVoters: refreshVoters,
+    onAddVoter: addVoter,
+    onSaveVoter: saveVoter,
+    onDeleteVoter: deleteVoter,
     onEditVoter: createEditVoterAction,
     onCancelVoter: createCancelVoterAction,
-  }, useDispatch());
+  }, dispatch), [ dispatch ]);
 
+  useEffect(() => {
 
-  return <VoterTool {...dispatchProps} voters={voters} editVoterId={editVoterId} />;
+    dispatchProps.onRefreshVoters();
+
+  }, [ dispatchProps ]);
+
+  return <VoterTool {...dispatchProps} {...stateProps} />;
 };
