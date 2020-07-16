@@ -1,0 +1,8 @@
+{
+  "voters": [
+    {"id":  1, "firstName": "Bob", "lastName":  "Smith"}
+  ],
+  "elections": [
+    {"question":  "Do you like cats?"}
+  ]
+}
