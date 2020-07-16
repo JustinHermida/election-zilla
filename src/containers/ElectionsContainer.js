@@ -1,7 +1,12 @@
 import React, {useEffect, useMemo} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {bindActionCreators} from "redux";
-import {refreshElections, saveBallot} from "../actions/electionActions";
+import {
+    addBallotQuestionAction,
+    clearBallotQuestionsAction,
+    refreshElections,
+    saveBallot
+} from "../actions/electionActions";
 import {ViewElections} from "../components/ViewElections";
 import {NewElectionsForm} from "../components/NewElectionsForm";
 
@@ -13,6 +18,7 @@ export const ElectionsContainer = ({ display }) => {
     const dispatchProps = useMemo(() => bindActionCreators({
         onSaveBallot: saveBallot,
         onRefreshElections: refreshElections,
+        onAddBallotQuestions: addBallotQuestionAction,
     }, dispatch), [ dispatch ]);
 
     useEffect(() => {
@@ -21,7 +27,7 @@ export const ElectionsContainer = ({ display }) => {
 
     const displayElection = () => {
         if(display === "new") {
-            return <NewElectionsForm />;
+            return <NewElectionsForm questions={stateProps.ballotQuestions} {...dispatchProps} />;
         }
 
         return <ViewElections />;
