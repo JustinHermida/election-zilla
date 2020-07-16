@@ -10,6 +10,7 @@ import { Layout } from './components/Layout'
 import { Home } from './components/Home'
 import { NewElectionsPage } from "./components/NewElectionsPage";
 import { VoterToolContainer } from './containers/VoterToolContainer';
+import { VoterFormContainer } from './containers/VoterFormContainer';
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
                 <Home />
               </Route>
               <Route path="/voter-registration">
-                <div>Voter Registration Component Goes Here.</div>
+              <VoterFormContainer />
               </Route>
               <Route path="/view-voters">
                 <VoterToolContainer />
