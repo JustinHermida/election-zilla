@@ -17,7 +17,7 @@ export const VoterViewRow = ({
       <td className="text">{voter.lastName}</td>
       <td className="text">{voter.address}</td>
       <td className="text">{voter.city}</td>
-      {/* <td className="text">{voter.birthdate}</td> */}
+      <td className="text">{voter.birthdate}</td>
       <td className="text">{voter.email}</td>
       <td>{nanToValue(voter.phone)}</td>
       <td>
