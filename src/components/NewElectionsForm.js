@@ -50,10 +50,10 @@ export const NewElectionsForm = ({questions, onAddBallotQuestions, onSaveBallot}
                     <label htmlFor="new-question-input">New Question</label>
                     <input className="form-control" type="text" id="new-question-input" name="question" value={ballot.question} onChange={change} />
                 </div>
-                <button type="button" className="btn btn-primary" onClick={addBallotQuestion}>Add Question</button>
+                <button type="button" className="btn btn-secondary" onClick={addBallotQuestion}>Add Question</button>
             </form>
             <NewQuestionsTable questions={questions} />
-            <button type="button" onClick={saveElection}>Save Ballot</button>
+            <button type="button" className="btn btn-primary" onClick={saveElection}>Save Ballot</button>
         </>
     );
 };
