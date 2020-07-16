@@ -8,6 +8,7 @@ import { appStore } from './stores/appStore'
 
 import { Layout } from './components/Layout'
 import { HomePage } from './components/HomePage'
+import { BallotPage } from './components/BallotPage'
 import { NewElectionsPage } from "./components/NewElectionsPage";
 import { VoterToolContainer } from './containers/VoterToolContainer';
 
@@ -20,7 +21,7 @@ function App() {
               <Route path="/" exact>
                 <HomePage />
               </Route>
-              <Route path="/ballots/{id}" exact>
+              <Route path="/ballots/:userId" exact>
                 <BallotPage />
               </Route>
               <Route path="/voter-registration">

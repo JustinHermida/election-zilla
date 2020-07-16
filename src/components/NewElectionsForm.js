@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import {NewQuestionsTable} from "./NewQuestionsTable";
-import {addBallotQuestionAction} from "../actions/electionActions";
 
 export const NewElectionsForm = ({questions, onAddBallotQuestions, onSaveBallot}) => {
 
