@@ -1,33 +1,11 @@
 import React from "react";
+import {DisplayBallotResults} from "./DisplayBallotResults";
 
 export const ViewElectionResults = ({ elections }) => {
     return (
-        <>
-            <table>
-                <tbody>
-                {
-                    elections.map( election =>
-                        (
-                            <tr key={election.id}>
-                                <td colSpan="2">{election.name}</td>
-                            </tr>
-                        )
-
-                    )
-                }
-                </tbody>
-
-            </table>
-            {/*{*/}
-            {/*    elections.map( election =>*/}
-            {/*        <ul key={election.id}>*/}
-            {/*            {election.questions.map( question =>*/}
-            {/*                <li key={question.id}>{question.question} {question.count}</li>*/}
-            {/*            )}*/}
-            {/*        </ul>*/}
-            {/*    )*/}
-            {/*}*/}
-        </>
+        elections.map( election =>
+            <DisplayBallotResults key={election.id} election={election} />
+        )
     )
 };
 
