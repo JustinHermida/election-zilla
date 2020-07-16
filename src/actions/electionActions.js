@@ -5,32 +5,33 @@ export const SAVE_BALLOT_REQUEST_ACTION = 'SAVE_BALLOT_REQUEST';
 
 
 export const createRefreshElectionsRequestAction = () => ({
-    type: REFRESH_ELECTIONS_REQUEST_ACTION,
+    type: REFRESH_ELECTIONS_REQUEST_ACTION, 
 });
 
-export const createRefreshElectionsDoneAction = () => ({
+export const createRefreshElectionsDoneAction = elections => ({
     type: REFRESH_ELECTIONS_DONE_ACTION,
+    elections,
 });
 
 export const refreshElections = () => {
 
     return dispatch => {
-        dispatch(createRefreshElectionsRequestAction());
-
-        return fetch('http://localhost:3060/elections')
-            .then(res => res.json())
-            .then(elections => dispatch(createRefreshElectionsDoneAction(elections)))
-            .catch(error => {
-                console.log(error);
-            })
-
+      
+      dispatch(createRefreshElectionsRequestAction());
+      return fetch('http://localhost:3060/elections')
+        .then(res => res.json())
+        .then(elections => {
+           dispatch(createRefreshElectionsDoneAction(elections))
+        })
+        .catch(error => {
+          console.error(error);
+        })
     }
 };
 
 export const createSaveBallotRequestAction = ballot => ({
     type: SAVE_BALLOT_REQUEST_ACTION, ballot
 });
-
 
 export const saveBallot = ballot => {
     return dispatch =>  {

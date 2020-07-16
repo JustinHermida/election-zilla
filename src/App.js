@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { appStore } from './stores/appStore'
 
 import { Layout } from './components/Layout'
-import { Home } from './components/Home'
+import { HomePage } from './components/HomePage'
 import { NewElectionsPage } from "./components/NewElectionsPage";
 import { VoterToolContainer } from './containers/VoterToolContainer';
 
@@ -18,7 +18,7 @@ function App() {
         <Provider store={appStore}>
           <Switch>
               <Route path="/" exact>
-                <Home />
+                <HomePage />
               </Route>
               <Route path="/voter-registration">
                 <div>Voter Registration Component Goes Here.</div>

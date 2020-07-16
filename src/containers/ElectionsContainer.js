@@ -19,14 +19,10 @@ export const ElectionsContainer = ({ display }) => {
         dispatchProps.onRefreshElections();
     }, [ dispatchProps ]);
 
-    const displayElection = () => {
-        if(display === "new") {
-            return <NewElectionsForm />;
-        }
-
-        return <ViewElections />;
-    };
-
-    return displayElection();
+    return (
+        display === "new"
+        ? <NewElectionsForm /> 
+        : <ViewElections {...dispatchProps} {...stateProps}/>
+    );
 
 };
