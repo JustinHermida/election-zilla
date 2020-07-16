@@ -36,7 +36,7 @@ export const VoterEditRow = ({
       <td><input type="text" name="lastName" value={voterForm.lastName} onChange={change} /></td>
       <td><input type="text" name="address" value={voterForm.address} onChange={change} /></td>
       <td><input type="text" name="city" value={voterForm.city} onChange={change} /></td>
-      {/* <td><input type="text" name="birthdate" value={voterForm.birthdate} onChange={change} /></td> */}
+      <td><input type="text" name="birthdate" value={voterForm.birthdate} onChange={change} /></td>
       <td><input type="text" name="email" value={voterForm.email} onChange={change} /></td>
       <td><NumberInput name="phone" value={voterForm.phone} onChange={change} /></td>
       <td>

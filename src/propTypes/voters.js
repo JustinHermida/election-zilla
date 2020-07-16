@@ -6,8 +6,7 @@ export const voterPropTypes = PropTypes.shape({
   lastName: PropTypes.string.isRequired,
   address: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
-//   birthdate: PropTypes.date.isRequired,
-
+  birthdate: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   phone: PropTypes.number.isRequired,
 });
