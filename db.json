@@ -1,6 +1,6 @@
 {
   "voters": [
-    {"id":  1, "firstName": "Bob", "lastName":  "Smith"}
+    {"id":  1, "firstName": "Bob", "lastName":  "Smith", "address": "123 st", "city": "San Francisco", "birthdate": "01/01/1990", "email": "abc@gmail.com", "phone": 12345678910}
   ],
   "elections": [
     {"question":  "Do you like cats?"}
