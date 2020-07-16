@@ -21,7 +21,7 @@ export const VoterTable = ({
           <th>LastName</th>
           <th>Address</th>
           <th>City</th>
-          {/* <th>Birthdate</th> */}
+          <th>Birthdate</th>
           <th>Email</th>
           <th>Phone</th>
           <th>Action</th>
