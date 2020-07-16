@@ -8,8 +8,10 @@ export const Home = () => {
       </header>
       <table className="table table-striped light-background">
         <thead>
-          <th>Review The Informatively Named Ballots</th>
-          <th>Get Your Vote On!</th>
+          <tr>
+            <th>Review The Informatively Named Ballots</th>
+            <th>Get Your Vote On!</th>
+          </tr>
         </thead>
         <tbody>
           <tr>

@@ -4,7 +4,7 @@ import './App.css';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import { electionStore } from './stores/electionStore'
+import { appStore } from './stores/appStore'
 
 import { Layout } from './components/Layout'
 import { Home } from './components/Home'
@@ -15,7 +15,7 @@ function App() {
   return (
     <Router>
       <Layout>
-        <Provider store={electionStore}>
+        <Provider store={appStore}>
           <Switch>
               <Route path="/" exact>
                 <Home />
