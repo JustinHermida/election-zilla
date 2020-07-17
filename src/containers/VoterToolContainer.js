@@ -19,7 +19,6 @@ export const VoterToolContainer = () => {
 
   const dispatchProps = useMemo(() => bindActionCreators({
     onRefreshVoters: refreshVoters,
-    onAddVoter: addVoter,
     onSaveVoter: saveVoter,
     onDeleteVoter: deleteVoter,
     onEditVoter: createEditVoterAction,
