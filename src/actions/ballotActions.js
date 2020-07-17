@@ -102,7 +102,6 @@ export const updateElectionAction = () => ({
 });
 
 export const updateElection = (election) => {
-    console.log(election);
     return dispatch => {
         dispatch(updateElectionAction());
 
@@ -140,7 +139,6 @@ export const onCastVoteAction = () => ({
 });
 
 export const castVote = (ballotId, voterId) => {
-    console.log(ballotId + " " + voterId);
   return dispatch => {
       dispatch(onCastVoteAction());
 
