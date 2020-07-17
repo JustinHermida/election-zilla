@@ -6,19 +6,16 @@ import {
   addVoter, saveVoter,
   deleteVoter, createEditVoterAction,
   createCancelVoterAction, refreshVoters,
+  sortHeaderRequestAction,
 } from '../actions/voterToolActions';
 
 import { VoterTool } from '../components/VoterTool';
 
 export const VoterToolContainer = () => {
 
-  // const voters = useSelector(state => state.voters);
-
   const stateProps = useSelector(state => state);
 
   const dispatch = useDispatch();
-
-  // const editVoterId = useSelector(state => state.editVoterId);
 
   const dispatchProps = useMemo(() => bindActionCreators({
     onRefreshVoters: refreshVoters,
@@ -27,6 +24,7 @@ export const VoterToolContainer = () => {
     onDeleteVoter: deleteVoter,
     onEditVoter: createEditVoterAction,
     onCancelVoter: createCancelVoterAction,
+    onSortVoter: sortHeaderRequestAction,
   }, dispatch), [ dispatch ]);
 
   useEffect(() => {
@@ -35,5 +33,9 @@ export const VoterToolContainer = () => {
 
   }, [ dispatchProps ]);
 
-  return <VoterTool {...dispatchProps} {...stateProps} />;
+  const sortColumn = stateProps.sortColumn;
+
+  const newVoters = stateProps.voters.concat().sort((a, b) => a[sortColumn] > b[sortColumn] ? 1 : -1);
+
+  return <VoterTool {...dispatchProps} {...stateProps} voters={newVoters} />;
 };

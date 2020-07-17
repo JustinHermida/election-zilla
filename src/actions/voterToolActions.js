@@ -8,6 +8,8 @@ export const DELETE_VOTER_REQUEST_ACTION = 'DELETE_VOTER_REQUEST';
 export const EDIT_VOTER_ACTION = 'EDIT_VOTER';
 export const CANCEL_VOTER_ACTION = 'CANCEL_VOTER';
 
+export const SORT_HEADER_REQUEST_ACTION = 'SORT_HEADER';
+
 export const createRefreshVotersRequestAction = () => ({
   type: REFRESH_VOTERS_REQUEST_ACTION,
 });
@@ -82,6 +84,9 @@ export const deleteVoter = voterId => {
   };
   
 };
+
+export const sortHeaderRequestAction = headerColumn => 
+  ({ type: SORT_HEADER_REQUEST_ACTION, headerColumn });
 
 
 export const createEditVoterAction = voterId =>
