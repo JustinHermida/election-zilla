@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 
 import { votersReducer, editVoterIdReducer } from './voterToolReducers';
+
 import {
     ADD_BALLOT_QUESTION_ACTION,
     CLEAR_BALLOT_QUESTIONS_ACTION,

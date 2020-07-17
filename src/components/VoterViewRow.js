@@ -19,7 +19,7 @@ export const VoterViewRow = ({
       <td className="text">{voter.city}</td>
       <td className="text">{voter.birthdate}</td>
       <td className="text">{voter.email}</td>
-      <td>{nanToValue(voter.phone)}</td>
+      <td className="text">{voter.phone}</td>
       <td>
         <button type="button"
           onClick={() => onEditVoter(voter.id)}>Edit</button>
