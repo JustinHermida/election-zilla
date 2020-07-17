@@ -9,12 +9,12 @@ export const emailValidReducer = (valid = false, action) => {
   }
 
   return valid
-}
+};
 
-export const previouslyVotedReducer = (status = false, action) => {
+export const previouslyVotedReducer = (status = {}, action) => {
   if (action.type === PREVIOUSLY_VOTED_DONE_ACTION){
     return action.status
   }
 
   return status
-}
+};

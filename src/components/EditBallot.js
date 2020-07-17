@@ -2,30 +2,27 @@ import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 
 import { useParams } from 'react-router-dom'
+import {VoteQuestion} from "./VoteQuestion";
 
-export const EditBallot = ({ emailValid, elections, previouslyVoted, onEmailValid }) => {
+export const EditBallot = ({ emailValid, elections, previouslyVoted, onEmailValid, onVote, onCastVote }) => {
   const { id } = useParams();
-  const { name, questions } = elections.find(election => election.id === parseInt(id))
+  const { name, questions } = elections.find(election => election.id === parseInt(id));
 
   // State here is local to this form with a single input filed (email).
   const [ email, setEmail ] = useState('');
 
-  const updateQuestion = (e) => {
-    // If checked is true increment the count for the question.
-    // If checked is false decrement the count for the question.
-  
-    //console.log(e.target.value)
-    //console.log(e.target.checked)
-  }
 
   const changeEmail = (e) => {
-    //console.log(e.target.value)
     setEmail(e.target.value)
-  }
+  };
 
   const validateEmail = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     onEmailValid(email, id);
+  };
+
+  const castVote = () => {
+      onCastVote(id, previouslyVoted.voterId);
   };
 
   return (
@@ -46,7 +43,7 @@ export const EditBallot = ({ emailValid, elections, previouslyVoted, onEmailVali
           </form>
         </div>
       )
-    : (!previouslyVoted
+    : (!previouslyVoted.voted
         ? (
           <>
             <h1>
@@ -60,23 +57,15 @@ export const EditBallot = ({ emailValid, elections, previouslyVoted, onEmailVali
                 </tr>
               </thead>
               <tbody>
-                {questions.map(question => {
-                  return(
-                    <tr key={question.id}>
-                      <td>{question.question}</td>
-                      <td><input type="checkbox" value={question.id} onChange={updateQuestion}/></td>
-                    </tr>
-                  )
-                })}
+                {questions.map(question => <VoteQuestion key={question.id} ballotId={id} question={question} onVote={onVote} />)}
               </tbody>
             </table>
-            <Link to="/success" className="btn btn-primary">Cast Vote</Link>
+            <Link to="/success" onClick={castVote} className="btn btn-primary">Cast Vote</Link>
           </>
         )
       : (<>
         You already Voted Pick a different Election!
       </>)
       )
-    
   )
-}
+};

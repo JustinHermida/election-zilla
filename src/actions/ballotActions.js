@@ -2,9 +2,14 @@ export const REFRESH_ELECTIONS_REQUEST_ACTION = 'REFRESH_ELECTIONS_REQUEST';
 export const REFRESH_ELECTIONS_DONE_ACTION = 'REFRESH_ELECTIONS_DONE';
 
 export const VALIDATE_EMAIL_REQUEST_ACTION = "VALIDATE_EMAIL_REQUEST";
-export const VALIDATE_EMAIL_DONE_ACTION = "VALIDATE_EMAIL_DONE"
-export const PREVIOUSLY_VOTED_REQUEST_ACTION = "PREVIOUSLY_VOTED_REQUEST"
-export const PREVIOUSLY_VOTED_DONE_ACTION = "PREVIOUSLY_VOTED_DONE"
+export const VALIDATE_EMAIL_DONE_ACTION = "VALIDATE_EMAIL_DONE";
+export const PREVIOUSLY_VOTED_REQUEST_ACTION = "PREVIOUSLY_VOTED_REQUEST";
+export const PREVIOUSLY_VOTED_DONE_ACTION = "PREVIOUSLY_VOTED_DONE";
+
+export const ON_VOTE_REQUEST_ACTION = "ON_VOTE_REQUEST";
+export const UPDATE_ELECTION_REQUEST_ACTION = "UPDATE_ELECTION_REQUEST";
+
+export const ON_CAST_VOTE_ACTION = "ON_CAST_VOTE_REQUEST";
 
 export const createRefreshElectionsRequestAction = () => ({
     type: REFRESH_ELECTIONS_REQUEST_ACTION, 
@@ -43,21 +48,19 @@ export const emailValid = (email, ballotId) => {
         return fetch('http://localhost:3060/voters')
           .then(res => res.json())
           .then(voters => {
-            const voter = voters.find(voter => voter.email === email)
+            const voter = voters.find(voter => voter.email === email);
             if(!voter){
               // Voter's email is NOT in the DB
-              //console.log(`Did NOT find voter ID for : ${email}`)
-              dispatch(emailValidateDoneAction(false))
+              dispatch(emailValidateDoneAction(false));
             }else{
               // Voter's email is in the DB
-              //console.log(`Found: ${voter.id}`)
-              dispatch(emailValidateDoneAction(true))
+              dispatch(emailValidateDoneAction(true));
               dispatch(previouslyVoted(voter.id, ballotId))
             }
           })
           .catch(err => console.error(err))
     }
-}
+};
 
 export const emailValidateDoneAction = valid => ({
   type: VALIDATE_EMAIL_DONE_ACTION,
@@ -75,21 +78,82 @@ export const previouslyVotedDoneAction = (status) => ({
 
 export const previouslyVoted = (voterId, ballotId) => {
   return dispatch => {
-    //console.log(`VoterID: ${voterId}`)
-    dispatch(previouslyVotedAction())
+
+    dispatch(previouslyVotedAction());
 
     return fetch(`http://localhost:3060/elections/${ballotId}`)
     .then(res => res.json())
     .then(election => {
-      //console.log(`Found Elections: ${election.id}`)
-
-      //console.log(election.questions)
-      const previouslyVoted = election.questions.filter(question => question.voterIds.includes(voterId))
-      dispatch(previouslyVotedDoneAction(previouslyVoted.length > 0))
-      //console.log(`Previously Voted: ${previouslyVoted}`)
+      const previouslyVoted = election.questions.filter(question => question.voterIds.includes(voterId));
+      dispatch(previouslyVotedDoneAction({voted: previouslyVoted.length > 0, voterId}));
     })
-
-
   }
-}
+};
+
+export const onVoteRequestAction = (ballotId, questionId, checked) => ({
+   type: ON_VOTE_REQUEST_ACTION,
+   ballotId,
+   questionId,
+   checked,
+});
+
+export const updateElectionAction = () => ({
+    type: UPDATE_ELECTION_REQUEST_ACTION,
+});
+
+export const updateElection = (election) => {
+    console.log(election);
+    return dispatch => {
+        dispatch(updateElectionAction());
+
+        return fetch(`http://localhost:3060/elections/${election.id}`, {
+            method: 'PUT',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(election),
+        })
+    }
+};
+
+export const onVoteRequest = (ballotId, questionId, checked) => {
+    return dispatch => {
+        dispatch(onVoteRequestAction(ballotId, questionId, checked));
+
+        return fetch(`http://localhost:3060/elections/${ballotId}`)
+            .then(res => res.json())
+            .then(election => {
+                const question = election.questions.find(question => question.id === questionId);
+
+                if(checked) {
+                    question.count++;
+                } else {
+                    question.count--;
+                }
+                return election;
+            }).then(election => {
+                dispatch(updateElection(election))
+            });
+    }
+};
+
+export const onCastVoteAction = () => ({
+    type: ON_VOTE_REQUEST_ACTION,
+});
+
+export const castVote = (ballotId, voterId) => {
+    console.log(ballotId + " " + voterId);
+  return dispatch => {
+      dispatch(onCastVoteAction());
+
+      return fetch(`http://localhost:3060/elections/${ballotId}`)
+          .then(res => res.json())
+          .then(election => {
+              election.questions.forEach(question => {
+                 question.voterIds.push(voterId);
+              });
+              return election;
+          }).then(election => {
+              dispatch(updateElection(election))
+          });
+  }
+};
 
