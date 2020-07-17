@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 
 import { useParams } from 'react-router-dom'
 
-export const EditBallot = ({ emailValid, elections, onPreviouslyVoted }) => {
+export const EditBallot = ({ emailValid, elections, previouslyVoted, onEmailValid }) => {
   const { id } = useParams();
   const { name, questions } = elections.find(election => election.id === parseInt(id))
 
@@ -22,10 +22,9 @@ export const EditBallot = ({ emailValid, elections, onPreviouslyVoted }) => {
     setEmail(e.target.value)
   }
 
-
   const validateEmail = (e) => {
     e.preventDefault()
-    // onValidateEmail(email);
+    onEmailValid(email, id);
   };
 
   return (
@@ -46,30 +45,35 @@ export const EditBallot = ({ emailValid, elections, onPreviouslyVoted }) => {
           </form>
         </div>
       )
-    : (
-        <>
-          <h1>
-            {name}
-          </h1>
-          <table className='table light-background table-striped'>
-            <thead>
-              <tr>
-                <th>Question</th>
-                <th>Vote</th>
-              </tr>
-            </thead>
-            <tbody>
-              {questions.map(question => {
-                return(
-                  <tr key={question.id}>
-                    <td>{question.question}</td>
-                    <td><input type="checkbox" value={question.id} onChange={updateQuestion}/></td>
-                  </tr>
-                )
-              })}
-            </tbody>
-          </table>
-        </>
+    : (!previouslyVoted
+        ? (
+          <>
+            <h1>
+              {name}
+            </h1>
+            <table className='table light-background table-striped'>
+              <thead>
+                <tr>
+                  <th>Question</th>
+                  <th>Vote</th>
+                </tr>
+              </thead>
+              <tbody>
+                {questions.map(question => {
+                  return(
+                    <tr key={question.id}>
+                      <td>{question.question}</td>
+                      <td><input type="checkbox" value={question.id} onChange={updateQuestion}/></td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          </>
+        )
+      : (<>
+        You already Voted Pick a different Election!
+      </>)
       )
     
   )

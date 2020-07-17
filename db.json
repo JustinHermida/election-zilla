@@ -50,7 +50,7 @@
           "id": 1,
           "question": "Do you like lions?",
           "count": 1,
-          "voter_ids": [
+          "voterIds": [
             1
           ]
         },
@@ -58,19 +58,19 @@
           "id": 2,
           "question": "Do you like tiggers?",
           "count": 0,
-          "voter_ids": []
+          "voterIds": [2]
         },
         {
           "id": 3,
           "question": "Do you like bears?",
           "count": 0,
-          "voter_ids": []
+          "voterIds": []
         },
         {
           "id": 4,
           "question": "oh my!",
           "count": 0,
-          "voter_ids": []
+          "voterIds": []
         }
       ]
     },
@@ -82,7 +82,7 @@
           "id": 1,
           "question": "Have you watched Colony?",
           "count": 1,
-          "voter_ids": [
+          "voterIds": [
             1
           ]
         },
@@ -90,19 +90,19 @@
           "id": 2,
           "question": "Have you watched The Last Kingdom?",
           "count": 0,
-          "voter_ids": []
+          "voterIds": []
         },
         {
           "id": 3,
           "question": "Have you watched The Altered Carbon?",
           "count": 0,
-          "voter_ids": []
+          "voterIds": []
         },
         {
           "id": 4,
           "question": "Have you watched The Last Travelers?",
           "count": 0,
-          "voter_ids": []
+          "voterIds": []
         }
       ]
     },

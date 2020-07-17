@@ -2,6 +2,8 @@ import { combineReducers } from 'redux';
 
 import { votersReducer, editVoterIdReducer, sortVoterReducer } from './voterToolReducers';
 
+import { emailValidReducer, previouslyVotedReducer } from './editBallotReducers'
+
 import {
     ADD_BALLOT_QUESTION_ACTION,
     CLEAR_BALLOT_QUESTIONS_ACTION, ON_REFRESH_BALLOT_RESULTS_ID_ACTION,
@@ -49,4 +51,6 @@ export const appReducer = combineReducers({
     ballotQuestions: ballotQuestionsReducer,
     clearBallotQuestions: clearBallotQuestionsReducer,
     ballotResultsId: addViewResultsReducer,
+    emailValid: emailValidReducer,
+    previouslyVoted: previouslyVotedReducer
 });

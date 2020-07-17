@@ -1,8 +1,10 @@
 export const REFRESH_ELECTIONS_REQUEST_ACTION = 'REFRESH_ELECTIONS_REQUEST';
 export const REFRESH_ELECTIONS_DONE_ACTION = 'REFRESH_ELECTIONS_DONE';
 
-export const VALIDATE_EMAIL_ACTION = "VALIDATE_EMAIL";
-export const PREVIOUSLY_VOTED_ACTION = "PREVIOUSLY_VOTED"
+export const VALIDATE_EMAIL_REQUEST_ACTION = "VALIDATE_EMAIL_REQUEST";
+export const VALIDATE_EMAIL_DONE_ACTION = "VALIDATE_EMAIL_DONE"
+export const PREVIOUSLY_VOTED_REQUEST_ACTION = "PREVIOUSLY_VOTED_REQUEST"
+export const PREVIOUSLY_VOTED_DONE_ACTION = "PREVIOUSLY_VOTED_DONE"
 
 export const createRefreshElectionsRequestAction = () => ({
     type: REFRESH_ELECTIONS_REQUEST_ACTION, 
@@ -29,13 +31,13 @@ export const refreshElections = () => {
     }
 };
 
-export const validateEmailAction = (status) => ({
-    type: VALIDATE_EMAIL_ACTION,
-    status
+export const validateEmailAction = (email) => ({
+    type: VALIDATE_EMAIL_REQUEST_ACTION,
+    email
 });
 
-export const emailValid = (email) => {
-    return dispatch =>  {
+export const emailValid = (email, ballotId) => {
+    return dispatch => {
         dispatch(validateEmailAction(email));
 
         return fetch('http://localhost:3060/voters')
@@ -44,25 +46,50 @@ export const emailValid = (email) => {
             const voter = voters.find(voter => voter.email === email)
             if(!voter){
               // Voter's email is NOT in the DB
-              return false
+              console.log(`Did NOT find voter ID for : ${email}`)
+              dispatch(emailValidateDoneAction(false))
+            }else{
+              // Voter's email is in the DB
+              console.log(`Found: ${voter.id}`)
+              dispatch(emailValidateDoneAction(true))
+              dispatch(previouslyVoted(voter.id, ballotId))
             }
-            // Voter's email is in the DB
-            console.log(voter.id)
-            return true
           })
           .catch(err => console.error(err))
     }
 }
 
-export const previouslyVotedAction = (id) => ({
-  type: PREVIOUSLY_VOTED_ACTION,
-  id
-})
+export const emailValidateDoneAction = valid => ({
+  type: VALIDATE_EMAIL_DONE_ACTION,
+  valid,
+});
 
-export const previouslyVoted = (email) => {
+export const previouslyVotedAction = () => ({
+  type: PREVIOUSLY_VOTED_REQUEST_ACTION,
+});
+
+export const previouslyVotedDoneAction = (status) => ({
+  type: PREVIOUSLY_VOTED_DONE_ACTION,
+  status
+});
+
+export const previouslyVoted = (voterId, ballotId) => {
   return dispatch => {
-    dispatch(previouslyVotedAction(email))
+    console.log(`VoterID: ${voterId}`)
+    dispatch(previouslyVotedAction())
 
-    return fetch('')
+    return fetch(`http://localhost:3060/elections/${ballotId}`)
+    .then(res => res.json())
+    .then(election => {
+      console.log(`Found Elections: ${election.id}`)
+
+      console.log(election.questions)
+      const previouslyVoted = election.questions.filter(question => question.voterIds.includes(voterId))
+      dispatch(previouslyVotedDoneAction(previouslyVoted.length > 0))
+      console.log(`Previously Voted: ${previouslyVoted}`)
+    })
+
+
   }
 }
+
