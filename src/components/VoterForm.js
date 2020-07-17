@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { StringFormControl } from './FormControls';
 import { useForm } from '../hooks/useForm';
+import { Link } from 'react-router-dom';
 
 export const VoterForm = ({ buttonText, onSubmitVoter }) => {
 
@@ -30,7 +31,7 @@ export const VoterForm = ({ buttonText, onSubmitVoter }) => {
       <StringFormControl caption="Birthdate" name="birthdate" value={voterForm.birthdate} onChange={change} />
       <StringFormControl caption="Email" name="email" value={voterForm.email} onChange={change} />
       <StringFormControl caption="Phone" name="phone" value={voterForm.phone} onChange={change} />
-      <button type="button" onClick={submitVoter}>{buttonText}</button>
+      <Link className="btn btn-primary" to="/" onClick={submitVoter}>{buttonText}</Link>
     </form>
   )
 
