@@ -32,6 +32,7 @@ export const EditBallot = ({ elections }) => {
   }
 
   const validateEmail = (e) => {
+    
     e.preventDefault()
     console.log(`Validating ${email}`)
   }

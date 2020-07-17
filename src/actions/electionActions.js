@@ -5,6 +5,8 @@ export const SAVE_BALLOT_REQUEST_ACTION = 'SAVE_BALLOT_REQUEST';
 export const ADD_BALLOT_QUESTION_ACTION = 'ADD_BALLOT_QUESTION';
 export const CLEAR_BALLOT_QUESTIONS_ACTION = 'CLEAR_BALLOT_QUESTIONS';
 
+export const ADD_VIEW_RESULTS_ACTION = 'ADD_VIEW_RESULTS_ACTION';
+
 
 export const createRefreshElectionsRequestAction = () => ({
     type: REFRESH_ELECTIONS_REQUEST_ACTION, 
@@ -70,5 +72,14 @@ export const clearBallotQuestionsAction = (ballotQuestions) => ({
     type: CLEAR_BALLOT_QUESTIONS_ACTION,
     ballotQuestions,
 });
+
+export const addViewResultsAction = (electionId, questionId) => ({
+    type: ADD_VIEW_RESULTS_ACTION,
+    electionId,
+    questionId,
+});
+
+
+
 
 
