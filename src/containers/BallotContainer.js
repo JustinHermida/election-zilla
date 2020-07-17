@@ -3,10 +3,9 @@ import {useDispatch, useSelector} from "react-redux";
 import {bindActionCreators} from "redux";
 import {
     refreshElections,
-} from "../actions/electionActions";
+} from "../actions/ballotActions";
 
 import {EditBallot} from '../components/EditBallot'
-
 
 export const BallotContainer = () => {
     const stateProps = useSelector(state => state);
