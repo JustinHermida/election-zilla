@@ -1,5 +1,5 @@
 import {
-  EDIT_VOTER_ACTION, CANCEL_VOTER_ACTION, REFRESH_VOTERS_DONE_ACTION
+  EDIT_VOTER_ACTION, CANCEL_VOTER_ACTION, REFRESH_VOTERS_DONE_ACTION, SORT_HEADER_REQUEST_ACTION
 } from '../actions/voterToolActions';
 
 export const votersReducer = (voters = [], action) => {
@@ -28,4 +28,12 @@ export const editVoterIdReducer = (editVoterId = -1, action) => {
 
   return editVoterId;
 
+};
+
+
+export const sortVoterReducer = (headerColumn = "id", action) => {
+  if(action.type === SORT_HEADER_REQUEST_ACTION) {
+    return action.headerColumn;
+  }
+  return headerColumn;
 };
