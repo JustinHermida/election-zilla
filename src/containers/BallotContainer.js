@@ -2,7 +2,7 @@ import React, {useEffect, useMemo} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {bindActionCreators} from "redux";
 import {
-    refreshElections, emailValid, validateEmail
+    refreshElections, emailValid
 } from "../actions/ballotActions";
 
 import {EditBallot} from '../components/EditBallot'
@@ -14,7 +14,7 @@ export const BallotContainer = () => {
     const dispatchProps = useMemo(() => bindActionCreators({
         onRefreshElections: refreshElections,
         onEmailValid: emailValid,
-        onValidateEmail: validateEmail
+        // onValidateEmail: validateEmail
     }, dispatch), [ dispatch ]);
 
     useEffect(() => {

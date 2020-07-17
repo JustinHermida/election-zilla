@@ -4,11 +4,9 @@ import { votersPropTypes } from '../propTypes/voters';
 import { VoterViewRow } from './VoterViewRow';
 import { VoterEditRow } from './VoterEditRow';
 import { useList } from '../hooks/useList';
-// import ReactTable from 'react-table'
 
 export const VoterTable = ({
   voters, editVoterId,
-  onAddVoter: addVoter,
   onEditVoter: editVoter,
   onDeleteVoter: deleteVoter,
   onSaveVoter: saveVoter,
@@ -26,15 +24,7 @@ export const VoterTable = ({
   }
 
   const headerClickHandler = (columnName) => {
-    // console.log('Header clicked!');
-    // console.log(columnName);
-
     sortVoter(columnName);
-
-    // const newVoters = voters.concat().sort((a, b) => a.id < b.id ? 1 : -1);
-    // voters.map(v => deleteVoter(v.id));
-    // newVoters.map(newVoter => addVoter(newVoter));
-
   };
 
   return (

@@ -34,8 +34,6 @@ export const validateEmailAction = (status) => ({
     status
 });
 
-
-
 export const emailValid = (email) => {
     return dispatch =>  {
         dispatch(validateEmailAction(email));
@@ -49,19 +47,22 @@ export const emailValid = (email) => {
               return false
             }
             // Voter's email is in the DB
+            console.log(voter.id)
             return true
           })
           .catch(err => console.error(err))
     }
 }
 
-export const previouslyVotedAction = (status) => ({
+export const previouslyVotedAction = (id) => ({
   type: PREVIOUSLY_VOTED_ACTION,
-  status
+  id
 })
 
 export const previouslyVoted = (email) => {
   return dispatch => {
     dispatch(previouslyVotedAction(email))
+
+    return fetch('')
   }
 }

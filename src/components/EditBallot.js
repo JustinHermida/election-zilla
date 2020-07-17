@@ -25,7 +25,7 @@ export const EditBallot = ({ emailValid, elections, onPreviouslyVoted }) => {
 
   const validateEmail = (e) => {
     e.preventDefault()
-    onValidateEmail(email);
+    // onValidateEmail(email);
   };
 
   return (

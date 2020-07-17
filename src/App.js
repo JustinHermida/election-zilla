@@ -33,7 +33,6 @@ function App() {
                 <VoterToolContainer />
               </Route>
               <Route path="/view-results">
-                <div>View Results Component Goes Here.</div>
                   <ViewResultsContainer />
               </Route>
               <Route path="/new-election">
