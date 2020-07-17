@@ -9,7 +9,6 @@ export const ViewElectionResults = ({ elections, onViewBallotResults}) => {
                 <h1>View Results</h1>
             </header>
             <table className="table table-striped light-background">
-
                 <tbody>
                 {!elections.length
                     ? <tr><td colSpan="2">There are no elections.</td></tr>

@@ -8,10 +8,13 @@ export const DisplayBallotResults = ({election, onBack}) => {
 
     return (
         <>
+            <header className="tool-header">
+                <h1>Ballot Results!</h1>
+            </header>
             <table className="light-background table table-responsive-xl">
                 <thead>
                     <tr>
-                        <th>{election.name}</th>
+                        <th colSpan="2">{election.name}</th>
                     </tr>
                 </thead>
                 <tbody>
