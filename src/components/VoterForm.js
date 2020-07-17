@@ -31,7 +31,7 @@ export const VoterForm = ({ buttonText, onSubmitVoter }) => {
       <StringFormControl caption="Birthdate" name="birthdate" value={voterForm.birthdate} onChange={change} />
       <StringFormControl caption="Email" name="email" value={voterForm.email} onChange={change} />
       <StringFormControl caption="Phone" name="phone" value={voterForm.phone} onChange={change} />
-      <Link className="btn btn-primary" to="/" onClick={submitVoter}>{buttonText}</Link>
+      <Link className="btn btn-primary mt-4" to="/" onClick={submitVoter}>{buttonText}</Link>
     </form>
   )
 

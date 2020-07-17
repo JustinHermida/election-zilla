@@ -29,7 +29,7 @@ export const VoterTable = ({
 
   return (
     <>
-      <table className="light-background table table-striped table-responsive-xl">
+      <table className="light-background table table-striped table-responsive">
         <thead>
           <tr>
             <th onClick={() => headerClickHandler("id")}>Id</th>
@@ -40,7 +40,7 @@ export const VoterTable = ({
             <th onClick={() => headerClickHandler("birthdate")}>Birthdate</th>
             <th onClick={() => headerClickHandler("email")}>Email</th>
             <th onClick={() => headerClickHandler("phone")}>Phone</th>
-            <th>Action</th>
+            <th colSpan="2">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -54,7 +54,7 @@ export const VoterTable = ({
                     ondeleteVoterFromSelectedListList={deleteVoterFromSelectedListList}/>)}
         </tbody>
       </table>
-      <button type="button" onClick={() => deleteMultiple(selectedList)}>Delete Selected Voters</button>
+      <button className="btn btn-primary" type="button" onClick={() => deleteMultiple(selectedList)}>Delete Selected Voters</button>
     </>
   );
 

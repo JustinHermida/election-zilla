@@ -1,7 +1,7 @@
 import React, {useMemo} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {bindActionCreators} from "redux";
-import {addBallotQuestionAction, refreshElections, saveBallot} from "../actions/electionActions";
+import {addBallotQuestionAction, saveBallot} from "../actions/electionActions";
 import {NewElectionsForm} from "../components/NewElectionsForm";
 
 export const ElectionFormContainer = () => {

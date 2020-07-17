@@ -6,13 +6,13 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import {appStore} from './stores/appStore'
 
-import {Layout} from './components/Layout'
-import {Home} from './components/Home'
-import {VoterToolContainer} from './containers/VoterToolContainer';
-import {ElectionFormContainer} from "./containers/ElectionFormContainer";
-import {ViewResultsContainer} from "./containers/ViewResultsContainer";
+import { BallotContainer } from './containers/BallotContainer'
+import { ElectionFormContainer } from "./containers/ElectionFormContainer";
+import { ElectionsContainer } from './containers/ElectionsContainer'
+import { Layout } from './components/Layout'
+import { ViewResultsContainer } from "./containers/ViewResultsContainer";
 import { VoterFormContainer } from './containers/VoterFormContainer';
-import {DisplayBallotResults} from "./components/DisplayBallotResults";
+import { VoterToolContainer } from './containers/VoterToolContainer';
 
 function App() {
   return (
@@ -21,7 +21,10 @@ function App() {
         <Provider store={appStore}>
           <Switch>
               <Route path="/" exact>
-                <Home />
+                <ElectionsContainer />
+              </Route>
+              <Route path="/ballots/:id" exact>
+                <BallotContainer />
               </Route>
               <Route path="/voter-registration">
               <VoterFormContainer />
@@ -33,7 +36,6 @@ function App() {
                   <ViewResultsContainer />
               </Route>
               <Route path="/new-election">
-                <div>New Election Component Goes Here.</div>
                   <ElectionFormContainer />
               </Route>
             </Switch>
