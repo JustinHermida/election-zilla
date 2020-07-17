@@ -7,6 +7,7 @@ export const EditBallot = ({ elections }) => {
   const { id } = useParams();
   const { name, questions } = elections.find(election => election.id === parseInt(id))
 
+  // State here is local to this form with a single input filed (email).
   const [ email, setEmail ] = useState('');
 
   const updateQuestion = (e) => {

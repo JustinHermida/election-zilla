@@ -2,7 +2,6 @@ import React from 'react';
 
 import { ToolHeader } from './ToolHeader';
 import { VoterTable } from './VoterTable';
-import { VoterForm } from './VoterForm';
 
 import "./VoterTool.css";
 
