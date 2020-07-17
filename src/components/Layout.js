@@ -22,7 +22,7 @@ export const Layout = ({children}) => {
                 <ul className="nav navbar-nav ml-auto">
                     <li className="nav-item" role="presentation"><Link className="nav-link text-shadow" to="/"><strong>Elections</strong></Link></li>
                     <li className="nav-item" role="presentation"><Link className="nav-link text-shadow" to="/voter-registration"><strong>Register Voter</strong></Link></li>
-                    <li className="nav-item" role="presentation"><Link className="nav-link text-shadow" to="/view-voters"><strong>Registered Voter</strong></Link></li>
+                    <li className="nav-item" role="presentation"><Link className="nav-link text-shadow" to="/view-voters"><strong>Registered Voters</strong></Link></li>
                     <li className="nav-item" role="presentation"><Link className="nav-link text-shadow" to="/view-results"><strong>View Results</strong></Link></li>
                     <li className="nav-item" role="presentation"><Link className="nav-link text-shadow" to="/new-election"><strong>New Election</strong></Link></li>
                 </ul>
