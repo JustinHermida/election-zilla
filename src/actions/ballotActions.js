@@ -1,12 +1,7 @@
 export const REFRESH_ELECTIONS_REQUEST_ACTION = 'REFRESH_ELECTIONS_REQUEST';
 export const REFRESH_ELECTIONS_DONE_ACTION = 'REFRESH_ELECTIONS_DONE';
 
-export const SAVE_BALLOT_REQUEST_ACTION = 'SAVE_BALLOT_REQUEST';
-export const ADD_BALLOT_QUESTION_ACTION = 'ADD_BALLOT_QUESTION';
-export const CLEAR_BALLOT_QUESTIONS_ACTION = 'CLEAR_BALLOT_QUESTIONS';
-
-export const ADD_VALIDATE_EMAIL_ACTION = "ADD_VALIDATE_EMAIL";
-
+export const VALIDATE_EMAIL_ACTION = "VALIDATE_EMAIL";
 
 export const createRefreshElectionsRequestAction = () => ({
     type: REFRESH_ELECTIONS_REQUEST_ACTION, 
@@ -33,58 +28,29 @@ export const refreshElections = () => {
     }
 };
 
-export const createSaveBallotRequestAction = ballot => ({
-    type: SAVE_BALLOT_REQUEST_ACTION, ballot
-});
-
-export const saveBallot = (name, questions) => {
-
-    // build the db model
-    const ballotQuestions = questions.map((question, index) => ({
-        id: index + 1,
-        question: question,
-        count: 0,
-        voterIds: [],
-    }));
-
-    const elections = {
-        name: name,
-        questions: ballotQuestions,
-    };
-
-
-    return dispatch =>  {
-        dispatch(createSaveBallotRequestAction(elections));
-
-        return fetch('http://localhost:3060/elections', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(elections),
-        });
-    }
-};
-
-export const addBallotQuestionAction = ballotQuestions => ({
-    type: ADD_BALLOT_QUESTION_ACTION, ballotQuestions
-});
-
-export const clearBallotQuestionsAction = (ballotQuestions) => ({
-    type: CLEAR_BALLOT_QUESTIONS_ACTION,
-    ballotQuestions,
-});
-
-export const addValidateEmailAction = (email) => ({
-    type: ADD_BALLOT_QUESTION_ACTION,
-    email
+export const validateEmailAction = (status) => ({
+    type: VALIDATE_EMAIL_ACTION,
+    status
 });
 
 export const validateEmail = (email) => {
     return dispatch =>  {
-        dispatch(addValidateEmailAction(email));
+        dispatch(validateEmailAction(email));
 
-        return fetch('http://localhost:3060/voter/', {
-            body: JSON.stringify(elections),
-        }).then()
+        // Is the user in the voter database?
+        return fetch('http://localhost:3060/voters')
+          .then(res => res.json())
+          .then(voters => {
+            const voter = voters.find(voter => voter.email === email)
+            // The voter isn't in the database
+            if(!voter){
+              console.log(`Voter is not in the DB: ${email}`)
+              return false
+            }
+            console.log(`Voter is in the DB: ${email}`)
+            return true
+          })
+          .catch(err => console.error(err))
     }
 }
 
