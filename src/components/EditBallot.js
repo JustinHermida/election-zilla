@@ -28,11 +28,11 @@ export const EditBallot = ({ elections }) => {
     // Cases where user is not valid.
     // 1. They are not in the voter db.
     // 2. They have already voted on this election.
-    return false
+    return true
   }
 
   const validateEmail = (e) => {
-    
+
     e.preventDefault()
     console.log(`Validating ${email}`)
   }
