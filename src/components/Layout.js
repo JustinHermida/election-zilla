@@ -11,6 +11,8 @@ export const Layout = ({children}) => {
             <strong>ElectionZilla</strong>
             {' '}
             <img src="assets/img/logo.jpg" alt="ElectionZilla Logo" className="rounded-circle" width="60" height="60"/>
+            {' '}
+            ROAWR!!!
           </Link>
           <button data-toggle="collapse" data-target="#navbarResponsive" className="navbar-toggler float-right" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <i className="fa fa-bars"></i>
@@ -20,7 +22,7 @@ export const Layout = ({children}) => {
                 <ul className="nav navbar-nav ml-auto">
                     <li className="nav-item" role="presentation"><Link className="nav-link text-shadow" to="/"><strong>Elections</strong></Link></li>
                     <li className="nav-item" role="presentation"><Link className="nav-link text-shadow" to="/voter-registration"><strong>Register Voter</strong></Link></li>
-                    <li className="nav-item" role="presentation"><Link className="nav-link text-shadow" to="/view-voters"><strong>View Voters</strong></Link></li>
+                    <li className="nav-item" role="presentation"><Link className="nav-link text-shadow" to="/view-voters"><strong>Registered Voter</strong></Link></li>
                     <li className="nav-item" role="presentation"><Link className="nav-link text-shadow" to="/view-results"><strong>View Results</strong></Link></li>
                     <li className="nav-item" role="presentation"><Link className="nav-link text-shadow" to="/new-election"><strong>New Election</strong></Link></li>
                 </ul>

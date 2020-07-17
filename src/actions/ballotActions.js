@@ -46,11 +46,11 @@ export const emailValid = (email, ballotId) => {
             const voter = voters.find(voter => voter.email === email)
             if(!voter){
               // Voter's email is NOT in the DB
-              console.log(`Did NOT find voter ID for : ${email}`)
+              //console.log(`Did NOT find voter ID for : ${email}`)
               dispatch(emailValidateDoneAction(false))
             }else{
               // Voter's email is in the DB
-              console.log(`Found: ${voter.id}`)
+              //console.log(`Found: ${voter.id}`)
               dispatch(emailValidateDoneAction(true))
               dispatch(previouslyVoted(voter.id, ballotId))
             }
@@ -75,18 +75,18 @@ export const previouslyVotedDoneAction = (status) => ({
 
 export const previouslyVoted = (voterId, ballotId) => {
   return dispatch => {
-    console.log(`VoterID: ${voterId}`)
+    //console.log(`VoterID: ${voterId}`)
     dispatch(previouslyVotedAction())
 
     return fetch(`http://localhost:3060/elections/${ballotId}`)
     .then(res => res.json())
     .then(election => {
-      console.log(`Found Elections: ${election.id}`)
+      //console.log(`Found Elections: ${election.id}`)
 
-      console.log(election.questions)
+      //console.log(election.questions)
       const previouslyVoted = election.questions.filter(question => question.voterIds.includes(voterId))
       dispatch(previouslyVotedDoneAction(previouslyVoted.length > 0))
-      console.log(`Previously Voted: ${previouslyVoted}`)
+      //console.log(`Previously Voted: ${previouslyVoted}`)
     })
 
 

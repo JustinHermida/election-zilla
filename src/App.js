@@ -13,6 +13,7 @@ import { Layout } from './components/Layout'
 import { ViewResultsContainer } from "./containers/ViewResultsContainer";
 import { VoterFormContainer } from './containers/VoterFormContainer';
 import { VoterToolContainer } from './containers/VoterToolContainer';
+import { Success } from './components/Success'
 
 function App() {
   return (
@@ -37,6 +38,9 @@ function App() {
               </Route>
               <Route path="/new-election">
                   <ElectionFormContainer />
+              </Route>
+              <Route path="/success">
+                  <Success />
               </Route>
             </Switch>
         </Provider>

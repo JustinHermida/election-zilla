@@ -58,7 +58,9 @@
           "id": 2,
           "question": "Do you like tiggers?",
           "count": 0,
-          "voterIds": [2]
+          "voterIds": [
+            2
+          ]
         },
         {
           "id": 3,

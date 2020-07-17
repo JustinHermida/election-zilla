@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { Link } from 'react-router-dom'
 
 import { useParams } from 'react-router-dom'
 
@@ -13,12 +14,12 @@ export const EditBallot = ({ emailValid, elections, previouslyVoted, onEmailVali
     // If checked is true increment the count for the question.
     // If checked is false decrement the count for the question.
   
-    console.log(e.target.value)
-    console.log(e.target.checked)
+    //console.log(e.target.value)
+    //console.log(e.target.checked)
   }
 
   const changeEmail = (e) => {
-    console.log(e.target.value)
+    //console.log(e.target.value)
     setEmail(e.target.value)
   }
 
@@ -69,6 +70,7 @@ export const EditBallot = ({ emailValid, elections, previouslyVoted, onEmailVali
                 })}
               </tbody>
             </table>
+            <Link to="/success" className="btn btn-primary">Cast Vote</Link>
           </>
         )
       : (<>
