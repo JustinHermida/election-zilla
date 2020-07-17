@@ -2,6 +2,7 @@ export const REFRESH_ELECTIONS_REQUEST_ACTION = 'REFRESH_ELECTIONS_REQUEST';
 export const REFRESH_ELECTIONS_DONE_ACTION = 'REFRESH_ELECTIONS_DONE';
 
 export const VALIDATE_EMAIL_ACTION = "VALIDATE_EMAIL";
+export const PREVIOUSLY_VOTED_ACTION = "PREVIOUSLY_VOTED"
 
 export const createRefreshElectionsRequestAction = () => ({
     type: REFRESH_ELECTIONS_REQUEST_ACTION, 
@@ -33,25 +34,34 @@ export const validateEmailAction = (status) => ({
     status
 });
 
-export const validateEmail = (email) => {
+
+
+export const emailValid = (email) => {
     return dispatch =>  {
         dispatch(validateEmailAction(email));
 
-        // Is the user in the voter database?
         return fetch('http://localhost:3060/voters')
           .then(res => res.json())
           .then(voters => {
             const voter = voters.find(voter => voter.email === email)
-            // The voter isn't in the database
             if(!voter){
-              console.log(`Voter is not in the DB: ${email}`)
+              // Voter's email is NOT in the DB
               return false
             }
-            console.log(`Voter is in the DB: ${email}`)
+            // Voter's email is in the DB
             return true
           })
           .catch(err => console.error(err))
     }
 }
 
+export const previouslyVotedAction = (status) => ({
+  type: PREVIOUSLY_VOTED_ACTION,
+  status
+})
 
+export const previouslyVoted = (email) => {
+  return dispatch => {
+    dispatch(previouslyVotedAction(email))
+  }
+}

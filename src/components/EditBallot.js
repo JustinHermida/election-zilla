@@ -2,8 +2,7 @@ import React, {useState} from 'react'
 
 import { useParams } from 'react-router-dom'
 
-export const EditBallot = ({ emailValid, elections, onValidateEmail }) => {
-  console.log(elections)
+export const EditBallot = ({ emailValid, elections, onPreviouslyVoted }) => {
   const { id } = useParams();
   const { name, questions } = elections.find(election => election.id === parseInt(id))
 
