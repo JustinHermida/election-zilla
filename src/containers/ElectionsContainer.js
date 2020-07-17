@@ -12,10 +12,7 @@ import {EditBallot} from '../components/EditBallot'
 import {ViewElectionResults} from "../components/ViewElectionResults";
 
 export const ElectionsContainer = ({ display }) => {
-
     const stateProps = useSelector(state => state);
-    console.log("STATE");
-    console.log(stateProps);
     const dispatch = useDispatch();
 
     const dispatchProps = useMemo(() => bindActionCreators({
@@ -41,7 +38,7 @@ export const ElectionsContainer = ({ display }) => {
             return <EditBallot {...dispatchProps} {...stateProps} />
         }
 
-        return <ViewElections />;
+        return <ViewElections {...dispatchProps} {...stateProps}/>;
     };
 
     return displayElection();

@@ -11,9 +11,7 @@ import { HomePage } from './components/HomePage'
 import { BallotPage } from './components/BallotPage'
 import { NewElectionsPage } from "./components/NewElectionsPage";
 import { VoterToolContainer } from './containers/VoterToolContainer';
-import {ViewElections} from "./components/ViewElections";
-import {ViewElectionResults} from "./components/ViewElectionResults";
-import {ViewElectionsResultsPage} from "./components/ViewElectionsResultsPage";
+import { ViewElectionsResultsPage } from "./components/ViewElectionsResultsPage";
 
 function App() {
   return (
@@ -24,7 +22,7 @@ function App() {
               <Route path="/" exact>
                 <HomePage />
               </Route>
-              <Route path="/ballots/:userId" exact>
+              <Route path="/ballots/:id" exact>
                 <BallotPage />
               </Route>
               <Route path="/voter-registration">

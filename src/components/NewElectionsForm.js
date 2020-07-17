@@ -28,6 +28,7 @@ export const NewElectionsForm = ({questions, onAddBallotQuestions, onSaveBallot}
     };
 
     const saveElection = () => {
+        // Justion - Eric mentioned that this should be in the action creator just before writing it to the db. The component shouldn't care about knowing the data structure of the question.
         const ballotQuestions = questions.map((question, index) => ({
             id: index + 1,
             question: question,
@@ -37,7 +38,7 @@ export const NewElectionsForm = ({questions, onAddBallotQuestions, onSaveBallot}
 
         // This is what is getting saved to the db.
         const elections = {
-            name: '',
+            name: ballot.name,
             questions: ballotQuestions,
         };
 

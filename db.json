@@ -105,6 +105,30 @@
           "voter_ids": []
         }
       ]
+    },
+    {
+      "name": "Vote For Your Favorite Super Hero",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Do you like Superman?",
+          "count": 0,
+          "voterIds": []
+        },
+        {
+          "id": 2,
+          "question": "Do you like Batman?",
+          "count": 0,
+          "voterIds": []
+        },
+        {
+          "id": 3,
+          "question": "Do you like Iron Man?",
+          "count": 0,
+          "voterIds": []
+        }
+      ],
+      "id": 3
     }
   ]
 }
