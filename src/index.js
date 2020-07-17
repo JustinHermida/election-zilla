@@ -2,23 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { Provider } from 'react-redux'; 
 import * as serviceWorker from './serviceWorker';
-import { VoterToolContainer } from './containers/VoterToolContainer';
-import { voterToolStore } from './stores/voterToolStore';
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    {/* <VoterToolContainer /> */}
   </React.StrictMode>,
-
-  // <>
-  // <Provider store={voterToolStore}>
-  //   <VoterToolContainer />
-  // </Provider>
-  // </>,
-
 
   document.getElementById('root')
 );

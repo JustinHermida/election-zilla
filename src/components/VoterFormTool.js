@@ -12,7 +12,7 @@ export const VoterFormTool = ({
   return (
     <div>
       <ToolHeader headerText="Register Voter" />
-    <VoterForm buttonText="Register Voter" onSubmitVoter={addVoter} />
+    <VoterForm buttonText="Complete Registration" onSubmitVoter={addVoter} />
     </div>
   );
 };
