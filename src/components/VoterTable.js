@@ -17,7 +17,7 @@ export const VoterTable = ({
   const [ selectedList , addVoterToSelectedList, deleteVoterFromSelectedListList, clearSelectedList ] = useList([]);
 
   const deleteMultiple = (selectedList) => {
-    selectedList.map(selectedVoter => {
+    selectedList.forEach(selectedVoter => {
       deleteVoter(selectedVoter.id);
     });
     clearSelectedList();
