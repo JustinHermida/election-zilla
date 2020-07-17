@@ -5,7 +5,7 @@ import { ViewBallot } from "./ViewBallot";
 export const ViewElectionResults = ({ elections, onViewBallotResults}) => {
     return (
         <div>
-            <header>
+            <header className="tool-header">
                 <h1>View Results</h1>
             </header>
             <table className="table table-striped light-background">

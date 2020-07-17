@@ -36,7 +36,6 @@ function App() {
                   <ViewResultsContainer />
               </Route>
               <Route path="/new-election">
-                <div>New Election Component Goes Here.</div>
                   <ElectionFormContainer />
               </Route>
             </Switch>

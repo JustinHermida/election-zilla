@@ -40,6 +40,9 @@ export const NewElectionsForm = ({questions, onAddBallotQuestions, onSaveBallot}
 
     return (
         <>
+            <header className="tool-header">
+                <h1>New Election</h1>
+            </header>
             <form>
                 <div className="form-group row">
                     <label htmlFor="new-ballot-input">Ballot Name</label>
@@ -49,7 +52,7 @@ export const NewElectionsForm = ({questions, onAddBallotQuestions, onSaveBallot}
                     <label htmlFor="new-question-input">New Question</label>
                     <input className="form-control" type="text" id="new-question-input" name="question" value={ballot.question} onChange={change} />
                 </div>
-                <button type="button" className="btn btn-secondary" onClick={addBallotQuestion}>Add Question</button>
+                <button type="button" className="btn btn-secondary mb-4" onClick={addBallotQuestion}>Add Question</button>
             </form>
             <NewQuestionsTable questions={questions} />
             <button type="button" className="btn btn-primary" onClick={saveElection}>Save Ballot</button>

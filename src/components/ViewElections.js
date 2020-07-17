@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export const ViewElections = ({ elections }) => {
     return (
     <div>
-      <header>
+      <header className="tool-header">
         <h1>Elections</h1>
       </header>
       <table className="table table-striped light-background">

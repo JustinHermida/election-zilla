@@ -32,9 +32,11 @@ export const VoterViewRow = ({
         <td className="text">{voter.phone}</td>
         <td>
           <input type="checkbox" name="select" onChange={handleChange} />
-          <button type="button"
+        </td>
+        <td>
+          <button type="button" className="btn btn-primary"
             onClick={() => onEditVoter(voter.id)}>Edit</button>
-          <button type="button"
+          <button type="button" className="btn btn-primary"
             onClick={() => onDeleteVoter(voter.id)}>Delete</button>
         </td>
       </tr>

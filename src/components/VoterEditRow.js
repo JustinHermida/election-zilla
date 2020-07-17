@@ -39,10 +39,10 @@ export const VoterEditRow = ({
       <td><input type="text" name="birthdate" value={voterForm.birthdate} onChange={change} /></td>
       <td><input type="text" name="email" value={voterForm.email} onChange={change} /></td>
       <td><input type="text" name="phone" value={voterForm.phone} onChange={change} /></td>
-      <td>
-        <button type="button"
+      <td colSpan="2">
+        <button type="button" className="btn btn-primary"
           onClick={saveVoter}>Save</button>
-        <button type="button"
+        <button type="button" className="btn btn-primary"
           onClick={cancelVoter}>Cancel</button>
       </td>
     </tr>
