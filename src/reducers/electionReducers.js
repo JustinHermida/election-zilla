@@ -3,9 +3,8 @@ import { combineReducers } from 'redux';
 import { votersReducer, editVoterIdReducer } from './voterToolReducers';
 import {
     ADD_BALLOT_QUESTION_ACTION,
-    ADD_VIEW_RESULTS_ACTION,
-    CLEAR_BALLOT_QUESTIONS_ACTION,
-    REFRESH_ELECTIONS_DONE_ACTION
+    CLEAR_BALLOT_QUESTIONS_ACTION, ON_REFRESH_BALLOT_RESULTS_ID_ACTION,
+    REFRESH_ELECTIONS_DONE_ACTION, VIEW_BALLOT_RESULTS_ACTION
 } from "../actions/electionActions";
 
 export const electionReducer = (elections = [], action) => {
@@ -32,22 +31,12 @@ export const clearBallotQuestionsReducer = (questions = [], action) => {
     return questions;
 };
 
-export const addViewResultsReducer = (viewResults = {}, action) => {
-  if(action.type === ADD_VIEW_RESULTS_ACTION) {
-      const newViewResults = {...viewResults};
+export const addViewResultsReducer = (ballotId = -1, action) => {
+    if(action.type === VIEW_BALLOT_RESULTS_ACTION || action.type === ON_REFRESH_BALLOT_RESULTS_ID_ACTION) {
+        return action.ballotId;
+    }
 
-      const questionIds = newViewResults[action.electionId];
-
-      if(questionIds) {
-          questionIds.push(action.questionId);
-      } else {
-          newViewResults[action.electionId] = [action.questionId];
-      }
-
-      return newViewResults;
-  }
-
-  return viewResults;
+    return ballotId;
 };
 
 
@@ -57,5 +46,5 @@ export const appReducer = combineReducers({
     elections: electionReducer,
     ballotQuestions: ballotQuestionsReducer,
     clearBallotQuestions: clearBallotQuestionsReducer,
-    viewResults: addViewResultsReducer,
+    ballotResultsId: addViewResultsReducer,
 });

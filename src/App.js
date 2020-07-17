@@ -12,6 +12,7 @@ import {VoterToolContainer} from './containers/VoterToolContainer';
 import {ElectionFormContainer} from "./containers/ElectionFormContainer";
 import {ViewResultsContainer} from "./containers/ViewResultsContainer";
 import { VoterFormContainer } from './containers/VoterFormContainer';
+import {DisplayBallotResults} from "./components/DisplayBallotResults";
 
 function App() {
   return (
@@ -29,7 +30,6 @@ function App() {
                 <VoterToolContainer />
               </Route>
               <Route path="/view-results">
-                <div>View Results Component Goes Here.</div>
                   <ViewResultsContainer />
               </Route>
               <Route path="/new-election">
