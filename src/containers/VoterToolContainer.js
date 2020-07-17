@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { useSelector, useDispatch } from 'react-redux';
 
 import {
-  addVoter, saveVoter,
+  saveVoter,
   deleteVoter, createEditVoterAction,
   createCancelVoterAction, refreshVoters,
   sortHeaderRequestAction,

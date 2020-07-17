@@ -2,9 +2,6 @@ import React from 'react';
 
 import { voterPropTypes } from '../propTypes/voters';
 
-import { nanToValue } from '../utils';
-import { useList } from '../hooks/useList';
-
 export const VoterViewRow = ({
   voter,
   onEditVoter,

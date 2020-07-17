@@ -1,43 +1,43 @@
 {
   "voters": [
     {
-      "id": 1,
       "firstName": "Bob",
       "lastName": "Smith",
-      "address": "123 st",
+      "address": "123 5th Street",
       "city": "San Francisco",
       "birthdate": "01/01/1990",
-      "email": "abc@gmail.com",
-      "phone": "12345678910"
+      "email": "bob_smith@gmail.com",
+      "phone": "1234567891",
+      "id": 1
     },
     {
       "firstName": "Jay",
       "lastName": "Grissom",
-      "address": "456 st",
+      "address": "46 10th Street",
       "city": "San Diego",
-      "birthdate": "01/01/1990",
+      "birthdate": "12/01/1995",
       "email": "jay_grissom@intuit.com",
-      "phone": "1234",
+      "phone": "1234112311",
       "id": 2
     },
     {
       "firstName": "John",
       "lastName": "Carmack",
-      "address": "789 st",
+      "address": "789 Daisy Avenue",
       "city": "Mountain View",
-      "birthdate": "01/01/1990",
+      "birthdate": "01/15/1980",
       "email": "john_carmac@idsoftware.com",
-      "phone": "122342",
+      "phone": "1223421009",
       "id": 3
     },
     {
       "firstName": "Cliff",
       "lastName": "Bleszinski",
-      "address": "10 st",
+      "address": "108 3rd Street",
       "city": "New York",
-      "birthdate": "01/01/1990",
+      "birthdate": "03/12/1990",
       "email": "cliff_bleszinski@epicgames.com",
-      "phone": "12345",
+      "phone": "7891212345",
       "id": 4
     }
   ],
