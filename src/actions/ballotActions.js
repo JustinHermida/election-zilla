@@ -5,6 +5,8 @@ export const SAVE_BALLOT_REQUEST_ACTION = 'SAVE_BALLOT_REQUEST';
 export const ADD_BALLOT_QUESTION_ACTION = 'ADD_BALLOT_QUESTION';
 export const CLEAR_BALLOT_QUESTIONS_ACTION = 'CLEAR_BALLOT_QUESTIONS';
 
+export const ADD_VALIDATE_EMAIL_ACTION = "ADD_VALIDATE_EMAIL";
+
 
 export const createRefreshElectionsRequestAction = () => ({
     type: REFRESH_ELECTIONS_REQUEST_ACTION, 
@@ -70,5 +72,20 @@ export const clearBallotQuestionsAction = (ballotQuestions) => ({
     type: CLEAR_BALLOT_QUESTIONS_ACTION,
     ballotQuestions,
 });
+
+export const addValidateEmailAction = (email) => ({
+    type: ADD_BALLOT_QUESTION_ACTION,
+    email
+});
+
+export const validateEmail = (email) => {
+    return dispatch =>  {
+        dispatch(addValidateEmailAction(email));
+
+        return fetch('http://localhost:3060/voter/', {
+            body: JSON.stringify(elections),
+        }).then()
+    }
+}
 
 

@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 
 import { useParams } from 'react-router-dom'
 
-export const EditBallot = ({ elections }) => {
+export const EditBallot = ({ userValid, elections, onValidateEmail }) => {
   console.log(elections)
   const { id } = useParams();
   const { name, questions } = elections.find(election => election.id === parseInt(id))
@@ -23,22 +23,13 @@ export const EditBallot = ({ elections }) => {
     setEmail(e.target.value)
   }
 
-  // Check the state of the user before doing anything else.
-  const userValid = () => {
-    // Cases where user is not valid.
-    // 1. They are not in the voter db.
-    // 2. They have already voted on this election.
-    return true
-  }
 
-  const validateEmail = (e) => {
-
-    e.preventDefault()
-    console.log(`Validating ${email}`)
-  }
+  const validateEmail = () => {
+      onValidateEmail(email);
+  };
 
   return (
-    !userValid() 
+    !userValid
     ? (
         <div className="text-center">
           <h2>Please validate yourself by entering your email.</h2>
@@ -51,7 +42,7 @@ export const EditBallot = ({ elections }) => {
               value={email}
               onChange={e => changeEmail(e)}
             />
-            &nbsp;<button className="btn btn-primary" onClick={e=> validateEmail(e)}> Validate</button>
+            &nbsp;<button className="btn btn-primary" onClick={validateEmail}> Validate</button>
           </form>
         </div>
       )
